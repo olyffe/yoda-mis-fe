@@ -8,6 +8,12 @@ const Inter = r => require.ensure([],
 const home = r => require.ensure([],
     () => r(require('../components/home')),
      'home');
+const demand = r => require.ensure([],
+    () => r(require('../components/demand')),
+     'demand');
+const authority = r => require.ensure([],
+    () => r(require('../components/authority')),
+     'authority');
 
 Vue.use(Router);
 
@@ -29,6 +35,14 @@ export default new Router({
             {
                 path: '/interface',
                 component: Inter
+            },
+            {
+                path: '/demand',
+                component: demand
+            },
+            {
+                path: '/authority',
+                component: authority
             }]
     }]
 });

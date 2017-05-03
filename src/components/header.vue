@@ -4,7 +4,11 @@
         <div class="linkWrapper">
             <router-link :to="'/home'" class="item">首页</router-link>
             <router-link :to="'/interface'" class="item">接口管理</router-link>
+            <router-link :to="'/demand'" class="item">需求管理</router-link>
+            <router-link :to="'/authority'" class="item">权限管理</router-link>
         </div>
+        <slot name="testinput"></slot>
+        <input v-model="username" v-if="cond" @change="setUser" >
         <ul class="user">
             <li><span>欢迎</span></li>
             <li><a href="javascript:void(0)">退出</a></li>
@@ -18,6 +22,13 @@
             return {
                 username: ''
             };
+        },
+        props: ['cond'],
+        methods: {
+            setUser: function () {
+                // body...
+                this.$emit('transferUser', this.username);
+            }
         }
     };
 </script>
